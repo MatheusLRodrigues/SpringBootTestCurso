@@ -14,11 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @DataJpaTest
 public class UserEntityIntegrationTest {
 
+    UserEntity userEntity;
     @Autowired
     private TestEntityManager testEntityManager;
-
-
-    UserEntity userEntity;
 
     @BeforeEach
     void setup() {

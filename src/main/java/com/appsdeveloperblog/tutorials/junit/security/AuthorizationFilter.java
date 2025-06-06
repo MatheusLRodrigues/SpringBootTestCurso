@@ -1,6 +1,5 @@
 package com.appsdeveloperblog.tutorials.junit.security;
 
-import com.appsdeveloperblog.tutorials.junit.io.UserEntity;
 import com.appsdeveloperblog.tutorials.junit.io.UsersRepository;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -49,8 +48,8 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
             token = token.replace(SecurityConstants.TOKEN_PREFIX, "");
 
             String user = Jwts.parser()
-                    .setSigningKey( SecurityConstants.TOKEN_SECRET)
-                    .parseClaimsJws( token )
+                    .setSigningKey(SecurityConstants.TOKEN_SECRET)
+                    .parseClaimsJws(token)
                     .getBody()
                     .getSubject();
 

@@ -4,10 +4,7 @@ import com.appsdeveloperblog.tutorials.junit.service.UsersService;
 import com.appsdeveloperblog.tutorials.junit.shared.UserDto;
 import com.appsdeveloperblog.tutorials.junit.ui.request.UserDetailsRequestModel;
 import com.appsdeveloperblog.tutorials.junit.ui.response.UserRest;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.h2.engine.User;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.modelmapper.ModelMapper;
@@ -22,7 +19,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -33,11 +29,10 @@ import static org.mockito.Mockito.when;
 @WebMvcTest(controllers = UsersController.class, excludeAutoConfiguration = {SecurityAutoConfiguration.class})
 public class UsersControllerWebLayerTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
     @MockBean
     UsersService usersService;
+    @Autowired
+    private MockMvc mockMvc;
 
     @Test
     @DisplayName("User can be created")
